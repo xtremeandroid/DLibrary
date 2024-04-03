@@ -16,7 +16,7 @@ const Input = ({ placeholder, name, type, value, handleChange, id }) => (
   />
 );
 
-const add_Book = ({ Add_Book }) => {
+const AddBook = ({ Add_Book }) => {
   const [title, set_title] = useState("");
   const [author, set_author] = useState("");
   const [avail_copies, set_available_copies] = useState("");
@@ -119,4 +119,4 @@ const add_Book = ({ Add_Book }) => {
   );
 };
 
-export default add_Book;
+export default AddBook;

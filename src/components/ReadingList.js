@@ -1,6 +1,6 @@
 import React from "react";
 
-const Reading_List = ({
+const ReadingList = ({
   Book_CIDs = [],
   openPDF,
   selected_CID,
@@ -34,4 +34,4 @@ const Reading_List = ({
     </div>
   );
 };
-export default Reading_List;
+export default ReadingList;

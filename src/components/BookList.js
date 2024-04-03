@@ -1,6 +1,6 @@
 import React from "react";
 
-const List_of_Books = ({ books, borrow_this_book, Borrowed_Book_List }) => {
+const BooksList = ({ books, borrow_this_book, Borrowed_Book_List }) => {
   // The function that handles borrowing a book and updating the reading list
   const handle_borrowed_books = async (Book_ID) => {
     try {
@@ -47,4 +47,4 @@ const List_of_Books = ({ books, borrow_this_book, Borrowed_Book_List }) => {
   );
 };
 
-export default List_of_Books;
+export default BooksList;

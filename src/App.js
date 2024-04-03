@@ -4,13 +4,12 @@ import Web3 from "web3";
 import { newKitFromWeb3 } from "@celo/contractkit";
 import "./App.css";
 import { contractABI, contractAddress } from "./utils/const";
-import {
-  Navbar,
-  Welcome,
-  add_Book,
-  List_of_Books,
-  Reading_List,
-} from "./components/Index";
+
+import Navbar from "./components/Navbar";
+import Welcome from "./components/Welcome";
+import AddBook from "./components/AddBook";
+import BookList from "./components/BookList";
+import ReadingList from "./components/ReadingList";
 
 function App() {
   const [Current_Account, setCurrentAccount] = useState("");
@@ -210,13 +209,13 @@ function App() {
           Current_Account={Current_Account}
         />
       </div>
-      <add_Book Add_Book={Add_Book} />
-      <List_of_Books
+      <AddBook Add_Book={Add_Book} />
+      <BookList
         books={books}
         borrow_this_book={borrow_this_book}
         Borrowed_Book_List={Borrowed_Book_List}
       />
-      <Reading_List
+      <ReadingList
         is_borrowed_Book={User_Borrowed_Books}
         Book_CIDs={Book_CIDs}
         openPDF={openPDF}
