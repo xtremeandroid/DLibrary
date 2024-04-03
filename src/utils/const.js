@@ -1,4 +1,4 @@
-export const contractAddress = "0x1234567890abcdef";
+export const contractAddress = process.env.REACT_APP_CONTRACT_ADDRESS;
 
 export const contractABI = [
   {
