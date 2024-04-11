@@ -71,8 +71,9 @@ const AddBook = ({ Add_Book }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!title || !author || !pinata_CID || !avail_copies) return;
-
     Add_Book(title, author, pinata_CID, avail_copies);
+
+    window.location.reload();
   };
 
   return (

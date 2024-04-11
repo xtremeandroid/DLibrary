@@ -9,6 +9,7 @@ const BooksList = ({ books, borrow_this_book, Borrowed_Book_List }) => {
 
       // After successfully borrowing the book, update the reading list
       await Borrowed_Book_List();
+      window.location.reload();
     } catch (error) {
       console.error(
         "Error borrowing the book and updating the reading list:",

@@ -195,6 +195,7 @@ function App() {
         return book;
       });
       setBooks(updatedBooks);
+      window.location.reload();
     } catch (error) {
       console.error("Error returning the book:", error);
     }

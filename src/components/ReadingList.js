@@ -1,4 +1,7 @@
 import React from "react";
+import { Document, Page } from "react-pdf";
+import { pdfjs } from "react-pdf";
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 const ReadingList = ({
   Book_CIDs = [],
@@ -7,6 +10,13 @@ const ReadingList = ({
   return_this_book,
   is_borrowed_Book,
 }) => {
+  console.log("PDF_LINK", `https://gateway.pinata.cloud/ipfs/${selected_CID}`);
+
+  const handleOpenPDF = (pinata_CID) => {
+    const pdfUrl = `https://gateway.pinata.cloud/ipfs/${pinata_CID}`;
+    window.open(pdfUrl, "_blank"); // Open URL in a new tab
+  };
+
   return (
     <div>
       <h2> Reading List</h2>
@@ -14,7 +24,7 @@ const ReadingList = ({
         const book_CID = Book_CIDs.find((book) => book.Book_ID === Book_ID);
         return (
           <div key={index}>
-            <button onClick={() => openPDF(book_CID.pinata_CID)}>
+            <button onClick={() => handleOpenPDF(book_CID.pinata_CID)}>
               Open Book {Book_ID}
             </button>
             <button onClick={() => return_this_book(Book_ID)}>
@@ -24,12 +34,16 @@ const ReadingList = ({
         );
       })}
       {selected_CID && (
-        <iframe
-          title="PDF Viewer"
-          src={`https://gateway.pinata.cloud/ipfs/${selected_CID}`}
-          width="100%"
-          height="600"
-        />
+        <div
+          style={{
+            width: "100%",
+            height: "100%",
+          }}
+        >
+          <Document file={`https://gateway.pinata.cloud/ipfs/${selected_CID}`}>
+            <Page pageNumber={1} />
+          </Document>
+        </div>
       )}
     </div>
   );
